@@ -124,9 +124,7 @@
             "version": "6.0",
             "ref": "ba1ac4e919baba5644d31b57a3284d6ba12d52ee"
         },
-        "files": [
-            "config/packages/messenger.yaml"
-        ]
+        "files": []
     },
     "symfony/monolog-bundle": {
         "version": "3.10",
