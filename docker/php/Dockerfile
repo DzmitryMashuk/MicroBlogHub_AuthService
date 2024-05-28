@@ -36,9 +36,9 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www
+WORKDIR /var/www/AuthService
 
-COPY ./app /var/www
+COPY ./app /var/www/AuthService
 
 RUN composer install --prefer-dist --no-progress --no-suggest --no-interaction
 
