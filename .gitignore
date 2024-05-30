@@ -20,3 +20,8 @@ app/.phpunit.result.cache
 app/phpunit.result.cache
 app/phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+###> friendsofphp/php-cs-fixer ###
+app/.php-cs-fixer.php
+app/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
