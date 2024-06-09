@@ -41,6 +41,11 @@ services:
       - microbloghub-network
     restart: unless-stopped
     tty: true
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
 
 networks:
   microbloghub-network:

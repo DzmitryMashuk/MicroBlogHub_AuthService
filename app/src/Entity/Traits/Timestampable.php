@@ -7,14 +7,13 @@ namespace App\Entity\Traits;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\HasLifecycleCallbacks]
 trait Timestampable
 {
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $createdAt = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: false)]
+    private \DateTimeInterface $createdAt;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $updatedAt = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: false)]
+    private \DateTimeInterface $updatedAt;
 
     #[ORM\PrePersist]
     public function onPrePersist(): void
@@ -36,9 +35,9 @@ trait Timestampable
         return $this;
     }
 
-    public function getCreatedAt(): \DateTimeInterface
+    public function getCreatedAt(): string
     {
-        return $this->createdAt;
+        return $this->createdAt->format('Y-m-d H:i:s');
     }
 
     public function setUpdatedAt(\DateTimeInterface $updatedAt): static
@@ -48,8 +47,8 @@ trait Timestampable
         return $this;
     }
 
-    public function getUpdatedAt(): \DateTimeInterface
+    public function getUpdatedAt(): string
     {
-        return $this->updatedAt;
+        return $this->updatedAt->format('Y-m-d H:i:s');
     }
 }
