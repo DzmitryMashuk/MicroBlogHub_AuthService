@@ -40,7 +40,10 @@ WORKDIR /var/www/AuthService
 
 COPY ./app /var/www/AuthService
 
-RUN composer install --prefer-dist --no-progress --no-suggest --no-interaction
+RUN composer install --prefer-dist --no-progress --no-interaction
+
+RUN chown -R www-data:www-data /var/www/AuthService \
+    && chmod -R 755 /var/www/AuthService
 
 EXPOSE 9000
 
